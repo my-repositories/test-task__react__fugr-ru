@@ -6,4 +6,4 @@ RUN yarn
 
 COPY . ./
 RUN CI=true yarn test && \
-    yarn run build
+    PUBLIC_URL=/test-task__react__fugr-ru yarn run build
