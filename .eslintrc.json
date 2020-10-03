@@ -1,4 +1,9 @@
 {
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
+  },
   "overrides": [
     {
       "files": [
@@ -13,7 +18,8 @@
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "prettier"
   ],
   "plugins": [
     "@typescript-eslint",
@@ -401,8 +407,8 @@
       "starred-block"
     ],
     "multiline-ternary":[
-      "off",
-      "never"
+      "error",
+      "always"
     ],
     "new-cap":[
       "error",
