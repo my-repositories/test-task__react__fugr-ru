@@ -3,7 +3,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
-import { setFilter } from '../store/users/actions';
+import { setFilter } from '../../store/users/actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
