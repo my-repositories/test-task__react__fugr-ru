@@ -10,7 +10,7 @@ import loadUsersSagaWatcher from './store/users/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 const isDev = process.env.NODE_ENV !== 'production' && typeof window === 'object';
-const composeSetup = isDev && ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose);
+const composeSetup = (isDev && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const store = createStore(rootReducer, composeSetup(applyMiddleware(sagaMiddleware)));
 sagaMiddleware.run(loadUsersSagaWatcher);
 // sagaMiddleware.run(pageLoadProfileSagaWatcher);
