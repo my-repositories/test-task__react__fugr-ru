@@ -5,7 +5,10 @@ import { failUsersLoading, setUsers } from './actions';
 import { config } from '../../config';
 
 function loadUsers(isSmallSize: boolean) {
-  if (process.env.NODE_ENV === 'development') {
+  const isDev = process.env.NODE_ENV === 'development';
+  const isHttps = window.location.protocol === 'https:';
+
+  if (isDev || isHttps) {
     return Promise.resolve(isSmallSize ? usersSmallSize : usersBigSize);
   }
 
