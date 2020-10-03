@@ -407,8 +407,8 @@
       "starred-block"
     ],
     "multiline-ternary":[
-      "error",
-      "always"
+      "off",
+      0
     ],
     "new-cap":[
       "error",

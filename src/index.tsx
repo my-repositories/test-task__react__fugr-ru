@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import { applyMiddleware, compose, createStore } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { App } from './components/App';
 import * as serviceWorker from './serviceWorker';
+import { rootReducer } from './store/rootReducer';
+import loadUsersSagaWatcher from './store/users/saga';
+
+const sagaMiddleware = createSagaMiddleware();
+const isDev = process.env.NODE_ENV !== 'production' && typeof window === 'object';
+const composeSetup = isDev && ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose);
+const store = createStore(rootReducer, composeSetup(applyMiddleware(sagaMiddleware)));
+sagaMiddleware.run(loadUsersSagaWatcher);
+// sagaMiddleware.run(pageLoadProfileSagaWatcher);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
