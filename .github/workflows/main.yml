@@ -1,0 +1,28 @@
+name: CI
+
+on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Build
+              run: yarn run docker:build
+
+            - name: Prepare static files before deploy
+              run: |
+                docker create --name test-task__react__fugr-ru.temp my-repositories/test-task__react__fugr-ru:build
+                docker cp test-task__react__fugr-ru.temp:/app/build $(pwd)/build
+                docker rm -f test-task__react__fugr-ru.temp
+
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./build
