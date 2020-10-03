@@ -26,8 +26,8 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
-    "eslint-plugin-react": "7.21.3",
     "eslint-config-prettier": "6.12.0",
+    "eslint-plugin-react": "7.21.3",
     "prettier": "2.1.2"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
     "@types/node": "12.12.62",
     "@types/react": "16.9.50",
     "@types/react-dom": "16.9.8",
+    "node-sass": "4.14.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.3",
