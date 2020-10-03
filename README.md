@@ -4,6 +4,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `yarn docker:build`
+
+Builds the docker image, that runnings tests and makes production bundle.<br />
+
+### `yarn docker:runtime`
+
+Builds the docker image, that copies production bundle from previous step and puts it to nginx static directory.<br />
+
+### `yarn docker:start`
+
+Runs the app with the docker in the production mode.<br />
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />

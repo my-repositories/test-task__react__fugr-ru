@@ -6,7 +6,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docker:build": "docker build --rm -t my-repositories/test-task__react__fugr-ru:build -f .docker/build.Dockerfile .",
+    "docker:runtime": "docker build --rm -t my-repositories/test-task__react__fugr-ru:runtime -f .docker/runtime.Dockerfile .docker",
+    "docker:start_message": "echo 'Starting the nginx web server...\nYou can now view project in the browser.\n\n\tLocal: http://localhost:8080'",
+    "docker:start_command": "docker run --rm -p 8080:8080 --name test-task__react__fugr-ru my-repositories/test-task__react__fugr-ru:runtime",
+    "docker:start": "yarn run --silent docker:start_message && yarn run docker:start_command"
   },
   "eslintConfig": {
     "extends": "react-app"
