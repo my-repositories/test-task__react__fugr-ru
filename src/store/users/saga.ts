@@ -1,19 +1,15 @@
 import { call, put, takeEvery } from '@redux-saga/core/effects';
 import { USERS_LOAD } from './actionTypes';
-import { usersBigSize, usersSmallSize } from './user';
+import { usersBigSize, usersSmallSize } from './users-mock';
 import { failUsersLoading, setUsers } from './actions';
+import { config } from '../../config';
 
 function loadUsers(isSmallSize: boolean) {
   if (process.env.NODE_ENV === 'development') {
     return Promise.resolve(isSmallSize ? usersSmallSize : usersBigSize);
   }
 
-  const smallUrl =
-    'http://www.filltext.com/?rows=32&id=%7Bnumber%7C1000%7D&firstName=%7BfirstName%7D&lastName=%7BlastName%7D&email=%7Bemail%7D&phone=%7Bphone%7C(xxx)xxx-xx-xx%7D&address=%7BaddressObject%7D&description=%7Blorem%7C32%7D';
-  const bigUrl =
-    'http://www.filltext.com/?rows=1000&id=%7Bnumber%7C1000%7D&firstName=%7BfirstName%7D&delay=3&lastName=%7BlastName%7D&email=%7Bemail%7D&phone=%7Bphone%7C(xxx)xxx-xx-xx%7D&address=%7BaddressObject%7D&description=%7Blorem%7C32%7D';
-
-  const url = isSmallSize ? smallUrl : bigUrl;
+  const url = isSmallSize ? config.smallUsersUrl : config.bigUsersUrl;
   return fetch(url).then((response) => response.json());
 }
 
