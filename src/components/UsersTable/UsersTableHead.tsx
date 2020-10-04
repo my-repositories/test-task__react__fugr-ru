@@ -3,8 +3,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
-import { setFilter } from '../../store/users/actions';
+import { addUser, setFilter } from '../../store/users/actions';
 import { UserAddForm } from './UserAddForm';
+import { User } from '../../store/users/user';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,7 +64,7 @@ export const UsersTableHead: React.FC = () => {
           {isFormOpened ? 'Скрыть форму' : 'Добавить'}
         </Button>
       </div>
-      {isFormOpened && <UserAddForm />}
+      {isFormOpened && <UserAddForm onSubmit={(user: User) => dispatch(addUser(user))} />}
     </>
   );
 };

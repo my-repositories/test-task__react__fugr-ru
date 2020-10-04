@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { useDispatch } from 'react-redux';
-import { addUser } from '../../store/users/actions';
+import { Field, reduxForm } from 'redux-form';
+import { InputText } from '../controls/InputText';
+import { User } from '../../store/users/user';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -46,52 +46,32 @@ const addressTextFields = [
   { name: 'zip', label: 'Zip' },
 ];
 
-const initialFormState = {
-  id: '',
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  description: '',
-  address: {
-    streetAddress: '',
-    city: '',
-    zip: '',
-    state: '',
-  },
-};
+function validate(user: User) {
+  const errors: any = {};
+  const requiredFields: Array<keyof User> = ['id', 'firstName', 'lastName', 'email', 'phone', 'description'];
+  requiredFields.forEach((field: keyof User) => {
+    if (!user[field]) {
+      errors[field] = 'Required';
+    }
+  });
 
-export const UserAddForm: React.FC = () => {
+  if (user.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(user.email)) {
+    errors.email = 'Invalid email address';
+  }
+
+  return errors;
+}
+
+export const UserAddForm: any = reduxForm({
+  validate,
+  form: 'UserAddForm',
+})((props: any) => {
   const classes = useStyles();
-  const [formValue, setFormValue] = useState<any>(initialFormState);
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(addUser(formValue));
-    setFormValue(initialFormState);
-  };
-  const handleChange = (event: any) => {
-    const { name, value } = event.target;
-    const fields = name.split('.');
 
-    setFormValue((prevState: any) => {
-      const newState = {
-        ...prevState,
-        address: {
-          ...prevState.address,
-        },
-      };
-      let field: any = newState;
-
-      for (let i = 0; i < fields.length; ++i) {
-        if (i + 1 === fields.length) {
-          field[fields[i]] = value;
-        } else {
-          field = field[fields[i]];
-        }
-      }
-
-      return newState;
-    });
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    props.handleSubmit();
+    props.reset();
   };
 
   return (
@@ -104,9 +84,10 @@ export const UserAddForm: React.FC = () => {
         <Typography component="h1" variant="h5">
           Добавление пользователя
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={handleSubmit} noValidate>
           {mainTextFields.map((input) => (
-            <TextField
+            <Field
+              component={InputText}
               key={input.name}
               variant="outlined"
               margin="normal"
@@ -116,15 +97,14 @@ export const UserAddForm: React.FC = () => {
               label={input.label}
               name={input.name}
               autoFocus={input.focused}
-              value={formValue[input.name]}
-              onChange={handleChange}
             />
           ))}
           <Typography variant="body2" color="textSecondary" align="center">
             Address
           </Typography>
           {addressTextFields.map((input) => (
-            <TextField
+            <Field
+              component={InputText}
               key={input.name}
               variant="outlined"
               margin="normal"
@@ -133,15 +113,20 @@ export const UserAddForm: React.FC = () => {
               id={input.name}
               label={input.label}
               name={`address.${input.name}`}
-              value={formValue.address[input.name]}
-              onChange={handleChange}
             />
           ))}
-          <Button fullWidth variant="contained" color="primary" className={classes.submit} onClick={handleClick}>
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            type="submit"
+            disabled={props.invalid}
+          >
             Добавить в таблицу
           </Button>
         </form>
       </div>
     </Container>
   );
-};
+});
