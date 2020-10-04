@@ -1,0 +1,218 @@
+{
+  "aside": {
+    "downloadCv": "Download PDF",
+    "lang": "Language",
+    "theme": {
+      "title": "Color Scheme",
+      "dark": "Dark",
+      "light": "Light"
+    }
+  },
+  "profile": {
+    "name": {
+      "key": "Name",
+      "value": "Aleksandr Loktionov"
+    },
+    "age": {
+      "key": "Age",
+      "birthDate": "1995.10.22"
+    },
+    "city": {
+      "key": "Location",
+      "value": "Moscow"
+    },
+    "socialMedia": [
+      {
+        "key": "Telegram",
+        "value": "@a_leksandr1",
+        "url": "https://t.me/a_leksandr1"
+      },
+      {
+        "key": "GitHub",
+        "value": "@loktionov129",
+        "url": "https://github.com/loktionov129"
+      },
+      {
+        "key": "Mail",
+        "value": "loktionov129@gmail.com",
+        "url": "mailto:oktionov129@gmail.com"
+      }
+    ],
+    "level": {
+      "key": "Level",
+      "value": "Middle"
+    },
+    "english": {
+      "key": "English",
+      "value": "Pre-Intermediate"
+    },
+    "specialization": {
+      "key": "Specialization",
+      "value": ".NET"
+    },
+    "salary": {
+      "key": "Salary (monthly)",
+      "value": "from $3000"
+    },
+    "employment": {
+      "key": "Employment",
+      "value": "full time"
+    },
+    "location": {
+      "key": "Work location",
+      "value": "on-site"
+    }
+  },
+  "keywords": {
+    "title": "Technology stack",
+    "buzzWords": [
+      {"name": "C#", "status": "info"},
+      {"name": ".NET CORE", "status": "info"},
+      {"name": "ASP.NET MVC", "status": "info"},
+      {"name": "Entity Framework", "status": "info"},
+      {"name": "PostgreSQL", "status": "info"},
+      {"name": "MSSQL", "status": "info"},
+      {"name": "Angular", "status": "ok"},
+      {"name": "ES6/7/8/Next", "status": "ok"},
+      {"name": "Webpack", "status": "ok"},
+      {"name": "TypeScript", "status": "ok"},
+      {"name": "Material", "status": "ok"},
+      {"name": "HTML", "status": "ok"},
+      {"name": "CSS", "status": "ok"},
+      {"name": "Bootstrap", "status": "ok"},
+      {"name": "PostCSS", "status": "ok"},
+      {"name": "BEM", "status": "ok"},
+      {"name": "Linux", "status": "error"},
+      {"name": "Nginx", "status": "error"},
+      {"name": "Docker", "status": "error"},
+      {"name": "Jenkins", "status": "error"},
+      {"name": "TeamCity", "status": "error"},
+      {"name": "Kubernetes", "status": "error"}
+    ]
+  },
+  "aboutApp": {
+    "title": "About app",
+    "description": "This is a project remastering"
+  },
+  "aboutMe": {
+    "title": "About me",
+    "facts": [
+      "Back-end: ASP.NET MVC / WEB API",
+      "Front-end: Angular, RxJS, NgRx / MobX, Bootstrap / Material",
+      "Experience with ASP.NET Identity / JWT",
+      "Experience with ORM: EntityFramework / Dapper",
+      "Experience with DBMS: PostgreSQL / MS SQL",
+      "Experience with DI / IoC",
+      "Experience in developing real-time applications",
+      "Experience of containerizing applications with Docker",
+      "Understanding the architecture of Web applications (three-layer architecture)",
+      "Excellent knowledge of SOLID principles, Object-oriented design and analysis, CQRS"
+    ]
+  },
+  "projectList": {
+    "title": "Projects",
+    "items": [
+      {
+        "groupName": "mpgp",
+        "projects": [
+          {
+            "link": "https://github.com/mpgp/mpgp.github.io",
+            "name": "mpgp.github.io",
+            "description": "Project documentation"
+          },
+          {
+            "link": "https://github.com/mpgp/Mpgp",
+            "name": "Mpgp",
+            "description": "ASP.NET CORE Web Api Application with WebSockets."
+          },
+          {
+            "link": "https://github.com/mpgp/BrowserClient",
+            "name": "BrowserClient",
+            "description": "Browser client powered by Angular."
+          }
+        ]
+      },
+      {
+        "groupName": "my-repositories",
+        "projects": [
+          {
+            "link": "https://github.com/my-repositories/ThreeTrees.Metrics",
+            "name": "ThreeTrees.Metrics",
+            "description": "«CRM Metrics» - System for software development company ThreeTrees."
+          },
+          {
+            "link": "https://github.com/my-repositories/TaskManager",
+            "name": "TaskManager",
+            "description": "«Task management system» - Test task for the position of the junior."
+          },
+          {
+            "link": "https://github.com/my-repositories/Battleship",
+            "name": "Battleship",
+            "description": "The first C# application."
+          },
+          {
+            "link": "https://github.com/my-repositories/Hangman",
+            "name": "Hangman",
+            "description": "The first JavaScript application."
+          }
+        ]
+      }
+    ]
+  },
+  "workExperience": {
+    "title": "Work experience",
+    "responsibilities": "Responsibilities",
+    "techStack": "Technology Stack",
+    "list": [
+      {
+        "name": "Magora Systems",
+        "specialization": "Backend .NET Developer",
+        "link": "http://magora-systems.com",
+        "duration": "Novosibirsk, August 2018 — until now.",
+        "description": "Social network development.",
+        "stack": [
+          ".Net Core 2+",
+          "PostgreSQL",
+          "Firebase",
+          "RabbitMQ"
+        ]
+      },
+      {
+        "name": "Saritasa",
+        "specialization": ".NET Developer",
+        "link": "https://www.saritasa.com/",
+        "duration": "Krasnoyarsk, April 2018 — August 2018.",
+        "description": "Development of a digital platform for restaurants.",
+        "stack": [
+          "C# / ASP.NET WEB API / WCF",
+          "Entity Framework / Dapper",
+          "MS SQL / Redis",
+          "TypeScript / Angular / RxJs / NgRx / Material Design"
+        ]
+      },
+      {
+        "name": "Orion Telecom",
+        "specialization": "Full Stack Developer",
+        "link": "https://orionnet.ru/krk",
+        "duration": "Krasnoyarsk, August 2017 – March 2018 г.",
+        "description": "Development of a CRM system for internal corporate use.",
+        "stack": [
+          "Angular",
+          "TypeScript",
+          "RxJs",
+          "NgRx",
+          "Bootstrap",
+          "Webpack with custom loaders",
+          "Laravel / PostgreSQL / RabbitMQ / memcached"
+        ]
+      },
+      {
+        "name": "Freelance",
+        "specialization": "Web Master",
+        "link": "#",
+        "duration": "Krasnoyarsk, February 2016 — August 2017",
+        "description": "Development of sites on WordPress. Writing markup of PSD layouts / editing of an existing design. Setup and configure third-party WordPress plugins."
+      }
+    ]
+  }
+}

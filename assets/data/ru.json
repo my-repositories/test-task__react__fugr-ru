@@ -1,0 +1,219 @@
+{
+  "aside": {
+    "downloadCv": "Скачать PDF",
+    "lang": "Язык",
+    "theme": {
+      "title": "Цветовая Схема",
+      "dark": "Тёмная",
+      "light": "Светлая"
+    }
+  },
+  "profile": {
+    "name": {
+      "key": "Имя",
+      "value": "Александр Локтионов"
+    },
+    "age": {
+      "key": "Возраст",
+      "birthDate": "1995.10.22"
+    },
+    "city": {
+      "key": "Город",
+      "value": "Москва"
+    },
+    "socialMedia": [
+      {
+        "key": "Телеграм",
+        "value": "@a_leksandr1",
+        "url": "https://t.me/a_leksandr1"
+      },
+      {
+        "key": "GitHub",
+        "value": "@loktionov129",
+        "url": "https://github.com/loktionov129"
+      },
+      {
+        "key": "Почта",
+        "value": "loktionov129@gmail.com",
+        "url": "mailto:oktionov129@gmail.com"
+      }
+    ],
+    "level": {
+      "key": "Левел",
+      "value": "Middle"
+    },
+    "english": {
+      "key": "Английский",
+      "value": "Pre-Intermediate"
+    },
+    "specialization": {
+      "key": "Специализация",
+      "value": ".NET"
+    },
+    "salary": {
+      "key": "Зарплата (мес.)",
+      "value": "от 3000$"
+    },
+    "employment": {
+      "key": "Занятость",
+      "value": "полная"
+    },
+    "location": {
+      "key": "Локация работы",
+      "value": "офис"
+    }
+  },
+  "keywords": {
+    "title": "Ключевые навыки",
+    "buzzWords": [
+      {"name": "C#", "status": "info"},
+      {"name": ".NET CORE", "status": "info"},
+      {"name": "ASP.NET MVC", "status": "info"},
+      {"name": "Entity Framework", "status": "info"},
+      {"name": "PostgreSQL", "status": "info"},
+      {"name": "MSSQL", "status": "info"},
+      {"name": "Angular", "status": "ok"},
+      {"name": "ES6/7/8/Next", "status": "ok"},
+      {"name": "Webpack", "status": "ok"},
+      {"name": "TypeScript", "status": "ok"},
+      {"name": "Material", "status": "ok"},
+      {"name": "HTML", "status": "ok"},
+      {"name": "CSS", "status": "ok"},
+      {"name": "Bootstrap", "status": "ok"},
+      {"name": "PostCSS", "status": "ok"},
+      {"name": "BEM", "status": "ok"},
+      {"name": "Linux", "status": "error"},
+      {"name": "Nginx", "status": "error"},
+      {"name": "Docker", "status": "error"},
+      {"name": "Jenkins", "status": "error"},
+      {"name": "TeamCity", "status": "error"},
+      {"name": "Kubernetes", "status": "error"}
+
+    ]
+  },
+  "aboutApp": {
+    "title": "О приложении",
+    "description": "Это ремастер проекта"
+  },
+  "aboutMe": {
+    "title": "Обо мне",
+    "facts": [
+      "Back-end: ASP.NET MVC / WEB API",
+      "Front-end: Angular, RxJS, NgRx / MobX, Bootstrap / Material",
+      "Опыт работы с ASP.NET Identity / JWT",
+      "Опыт работы с ORM: EntityFramework / Dapper",
+      "Опыт работы с СУБД: PostgreSQL / MS SQL",
+      "Опыт использования DI / IoC",
+      "Опыт разработки Real-time приложений",
+      "Опыт контейнеризации приложений с помощью Docker",
+      "Понимание архитектуры веб-приложений (трёхслойная архитектура)",
+      "Отличное знание принципов SOLID, Объектно-ориентированного проектирования и анализа, CQRS"
+    ]
+  },
+  "projectList": {
+    "title": "Проекты",
+    "items": [
+      {
+        "groupName": "mpgp",
+        "projects": [
+          {
+            "link": "https://github.com/mpgp/mpgp.github.io",
+            "name": "mpgp.github.io",
+            "description": "Документация по проекту"
+          },
+          {
+            "link": "https://github.com/mpgp/Mpgp",
+            "name": "Mpgp",
+            "description": "ASP.NET CORE Web Api Application with WebSockets."
+          },
+          {
+            "link": "https://github.com/mpgp/BrowserClient",
+            "name": "BrowserClient",
+            "description": "Browser client powered by Angular."
+          }
+        ]
+      },
+      {
+        "groupName": "my-repositories",
+        "projects": [
+          {
+            "link": "https://github.com/my-repositories/ThreeTrees.Metrics",
+            "name": "ThreeTrees.Metrics",
+            "description": "«CRM Metrics» - System for software development company ThreeTrees."
+          },
+          {
+            "link": "https://github.com/my-repositories/TaskManager",
+            "name": "TaskManager",
+            "description": "«Система управления задачами» - Тестовое задание на позицию младшего .NET разработчика."
+          },
+          {
+            "link": "https://github.com/my-repositories/Battleship",
+            "name": "Battleship",
+            "description": "Игра «Морской бой» - Первое приложение на C#."
+          },
+          {
+            "link": "https://github.com/my-repositories/Hangman",
+            "name": "Hangman",
+            "description": "Игра «Виселица» - Первое приложение на JavaScript."
+          }
+        ]
+      }
+    ]
+  },
+  "workExperience": {
+    "title": "Опыт работы",
+    "responsibilities": "Обязанности",
+    "techStack": "Технический Стек",
+    "list": [
+      {
+        "name": "Magora Systems",
+        "specialization": "Backend .NET Developer",
+        "link": "http://magora-systems.com",
+        "duration": "Новосибирск, август 2018 г. – наст. время",
+        "description": "Разработка социальной сети.",
+        "stack": [
+          ".Net Core 2+",
+          "PostgreSQL",
+          "Firebase",
+          "RabbitMQ"
+        ]
+      },
+      {
+        "name": "Saritasa",
+        "specialization": ".NET Developer",
+        "link": "https://www.saritasa.com/",
+        "duration": "Красноярск, апрель 2018 г. – август 2018 г.",
+        "description": "Разработка цифровой платформы для ресторанов.",
+        "stack": [
+          "C# / ASP.NET WEB API / WCF",
+          "Entity Framework / Dapper",
+          "MS SQL / Redis",
+          "TypeScript / Angular / RxJs / NgRx / Material Design"
+        ]
+      },
+      {
+        "name": "Орион телеком",
+        "specialization": "Full Stack Developer",
+        "link": "https://orionnet.ru/krk",
+        "duration": "Красноярск, август 2017 г. – март 2018 г.",
+        "description": "Разработка CRM-системы для внутреннего корпоративного пользования.",
+        "stack": [
+          "Angular",
+          "TypeScript",
+          "RxJs",
+          "NgRx",
+          "Bootstrap",
+          "Webpack with custom loaders",
+          "Laravel / PostgreSQL / RabbitMQ / memcached"
+        ]
+      },
+      {
+        "name": "Фриланс",
+        "specialization": "Веб-Мастер",
+        "link": "#",
+        "duration": "Красноярск, февраль 2016 г. – август 2017 г.",
+        "description": "Разработка и поддержка веб-сайтов на WordPress. Вёрстка PSD макетов / правка уже существующего дизайна. Подключение сторонних WordPress-плагинов."
+      }
+    ]
+  }
+}
