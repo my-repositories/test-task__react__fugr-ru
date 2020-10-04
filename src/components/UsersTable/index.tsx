@@ -16,11 +16,15 @@ import { EnhancedTableToolbar } from './EnhancedTableToolbar';
 import { getComparator, stableSort } from './util-functions';
 import { UserRow } from './UserRow';
 import { getFilteredUsers } from '../../store/users/selectors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { User } from '../../store/users/user';
 import { UsersTableFilter } from './UsersTableFilter';
+import { UsersDetails } from './UserDetails';
+import { selectUser } from '../../store/users/actions';
 
 export const UsersTable: React.FC = () => {
+  const dispatch = useDispatch();
+  const handleUserSelect = (user: User) => dispatch(selectUser(user));
   const users = useSelector(getFilteredUsers);
   const classes = useStyles();
   const [order, setOrder] = React.useState<Order>('asc');
@@ -71,7 +75,12 @@ export const UsersTable: React.FC = () => {
             {stableSort<User>(users, getComparator<User>(order, orderBy))
               .slice(page * tableElementsSize, page * tableElementsSize + tableElementsSize)
               .map((row, index) => (
-                <UserRow labelId={`enhanced-table-checkbox-${index}`} row={row} key={row.firstName + row.id} />
+                <UserRow
+                  labelId={`enhanced-table-checkbox-${index}`}
+                  row={row}
+                  key={row.firstName + row.id}
+                  onClick={handleUserSelect}
+                />
               ))}
             {emptyRows > 0 && (
               <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
@@ -103,6 +112,7 @@ export const UsersTable: React.FC = () => {
       {!!users.length && (
         <FormControlLabel control={<Switch checked={dense} onChange={handleChangeDense} />} label="Dense padding" />
       )}
+      <UsersDetails />
     </div>
   );
 };

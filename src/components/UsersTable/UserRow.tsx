@@ -6,10 +6,11 @@ import { User } from '../../store/users/user';
 interface UserRowProps {
   labelId: string;
   row: User;
+  onClick: (user: User) => void;
 }
 
-export const UserRow: React.FC<UserRowProps> = ({ labelId, row }: UserRowProps) => (
-  <TableRow hover tabIndex={-1}>
+export const UserRow: React.FC<UserRowProps> = ({ labelId, row, onClick }: UserRowProps) => (
+  <TableRow hover tabIndex={-1} onClick={() => onClick(row)}>
     <TableCell component="th" id={labelId} scope="row">
       {row.id}
     </TableCell>

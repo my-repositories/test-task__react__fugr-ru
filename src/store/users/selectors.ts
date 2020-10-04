@@ -6,6 +6,7 @@ export const getIsSmallSize: (state: RootState) => boolean = (state: RootState) 
 export const getUsers: (state: RootState) => User[] = (state: RootState) => state.users.items;
 export const hasLoadingError: (state: RootState) => boolean = (state: RootState) => state.users.hasLoadingError;
 export const getUsersFilter: (state: RootState) => string = (state: RootState) => state.users.filter;
+export const getSelectedUser: (state: RootState) => User | null = (state: RootState) => state.users.selectedUser;
 
 const filterFirstName = (user: User, filter: string) => user.firstName.toLowerCase().includes(filter);
 const filterLastName = (user: User, filter: string) => user.lastName.toLowerCase().includes(filter);
