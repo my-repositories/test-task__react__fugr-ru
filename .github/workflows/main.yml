@@ -31,5 +31,5 @@ jobs:
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u loktionov-t --password-stdin
           yarn run docker:runtime
-          docker tag my-repositories/test-task__react__fugr-ru:runtime docker.pkg.github.com/my-repositories/test-task__react__fugr-ru/runtime:latest
-          docker push docker.pkg.github.com/my-repositories/test-task__react__fugr-ru/runtime:latest
+          docker tag my-repositories/test-task__react__fugr-ru:runtime docker.pkg.github.com/my-repositories/test-task__react__fugr-ru/front:latest
+          docker push docker.pkg.github.com/my-repositories/test-task__react__fugr-ru/front:latest
