@@ -5,6 +5,10 @@ export const useStyles = makeStyles((theme: Theme) =>
     root: {
       width: '100%',
     },
+    emptyBlock: {
+      fontSize: '1rem',
+      padding: '0 0 16px 16px',
+    },
     paper: {
       width: '100%',
       marginBottom: theme.spacing(2),

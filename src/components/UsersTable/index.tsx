@@ -21,13 +21,13 @@ import { User } from '../../store/users/user';
 import { UsersTableFilter } from './UsersTableFilter';
 
 export const UsersTable: React.FC = () => {
+  const users = useSelector(getFilteredUsers);
   const classes = useStyles();
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof User>('id');
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(config.tableElementsSize);
-  const users = useSelector(getFilteredUsers);
   const tableElementsSize = users.length >= rowsPerPage ? rowsPerPage : users.length;
   const rowsPerPageOptions = Array.from(new Set([5, 10, 25, 50, tableElementsSize])).sort((a, b) => (a > b ? -1 : 1));
 
@@ -51,51 +51,58 @@ export const UsersTable: React.FC = () => {
   };
 
   const emptyRows = tableElementsSize - Math.min(tableElementsSize, users.length - page * tableElementsSize);
+  const tableContent = (
+    <>
+      <TableContainer>
+        <Table
+          className={classes.table}
+          aria-labelledby="tableTitle"
+          size={dense ? 'small' : 'medium'}
+          aria-label="enhanced table"
+        >
+          <EnhancedTableHead
+            classes={classes}
+            order={order}
+            orderBy={orderBy}
+            onRequestSort={handleRequestSort}
+            rowCount={users.length}
+          />
+          <TableBody>
+            {stableSort<User>(users, getComparator<User>(order, orderBy))
+              .slice(page * tableElementsSize, page * tableElementsSize + tableElementsSize)
+              .map((row, index) => (
+                <UserRow labelId={`enhanced-table-checkbox-${index}`} row={row} key={row.firstName + row.id} />
+              ))}
+            {emptyRows > 0 && (
+              <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                <TableCell colSpan={6} />
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={rowsPerPageOptions}
+        component="div"
+        count={users.length}
+        rowsPerPage={tableElementsSize}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+    </>
+  );
 
   return (
     <div className={classes.root}>
       <UsersTableFilter />
       <Paper className={classes.paper}>
         <EnhancedTableToolbar />
-        <TableContainer>
-          <Table
-            className={classes.table}
-            aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
-            aria-label="enhanced table"
-          >
-            <EnhancedTableHead
-              classes={classes}
-              order={order}
-              orderBy={orderBy}
-              onRequestSort={handleRequestSort}
-              rowCount={users.length}
-            />
-            <TableBody>
-              {stableSort<User>(users, getComparator<User>(order, orderBy))
-                .slice(page * tableElementsSize, page * tableElementsSize + tableElementsSize)
-                .map((row, index) => (
-                  <UserRow labelId={`enhanced-table-checkbox-${index}`} row={row} key={row.firstName + row.id} />
-                ))}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={rowsPerPageOptions}
-          component="div"
-          count={users.length}
-          rowsPerPage={tableElementsSize}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        />
+        {users.length ? tableContent : <div className={classes.emptyBlock}>Ничего не найдено :(</div>}
       </Paper>
-      <FormControlLabel control={<Switch checked={dense} onChange={handleChangeDense} />} label="Dense padding" />
+      {!!users.length && (
+        <FormControlLabel control={<Switch checked={dense} onChange={handleChangeDense} />} label="Dense padding" />
+      )}
     </div>
   );
 };
