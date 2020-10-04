@@ -10,6 +10,11 @@ export const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: theme.spacing(2),
       paddingLeft: theme.spacing(2),
     },
+    spinner: {
+      display: 'flex',
+      paddingBottom: theme.spacing(4),
+      justifyContent: 'center',
+    },
     paper: {
       width: '100%',
       marginBottom: theme.spacing(2),

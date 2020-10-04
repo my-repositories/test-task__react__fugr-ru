@@ -5,6 +5,7 @@ import { User } from './user';
 export const getIsSmallSize: (state: RootState) => boolean = (state: RootState) => state.users.isSmallSize;
 export const getUsers: (state: RootState) => User[] = (state: RootState) => state.users.items;
 export const hasLoadingError: (state: RootState) => boolean = (state: RootState) => state.users.hasLoadingError;
+export const getShowSpinner: (state: RootState) => boolean = (state: RootState) => state.users.showSpinner;
 export const getUsersFilter: (state: RootState) => string = (state: RootState) => state.users.filter;
 export const getSelectedUser: (state: RootState) => User | null = (state: RootState) => state.users.selectedUser;
 

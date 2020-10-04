@@ -4,6 +4,7 @@ import * as actions from './actions';
 import {
   TOGGLE_USERS_SIZE,
   USERS_ADD_USER,
+  USERS_LOAD,
   USERS_LOADED_ERROR,
   USERS_LOADED_SUCCESS,
   USERS_SELECT_USER,
@@ -17,6 +18,7 @@ export type UsersState = Readonly<{
   isSmallSize: boolean;
   items: User[];
   hasLoadingError: boolean;
+  showSpinner: boolean;
   filter: string;
   selectedUser: User | null;
 }>;
@@ -24,6 +26,7 @@ const initialState: UsersState = {
   isSmallSize: true,
   items: [],
   hasLoadingError: false,
+  showSpinner: false,
   filter: '',
   selectedUser: null,
 };
@@ -55,7 +58,22 @@ export default combineReducers<UsersState, UsersAction>({
         return true;
 
       case USERS_LOADED_SUCCESS:
+        return false;
+
+      default:
+        return state;
+    }
+  },
+  showSpinner: (state = initialState.showSpinner, action) => {
+    switch (action.type) {
+      case USERS_LOAD:
         return true;
+
+      case USERS_LOADED_ERROR:
+        return false;
+
+      case USERS_LOADED_SUCCESS:
+        return false;
 
       default:
         return state;

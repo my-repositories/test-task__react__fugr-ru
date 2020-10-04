@@ -15,17 +15,20 @@ import { Order } from './model';
 import { EnhancedTableToolbar } from './EnhancedTableToolbar';
 import { getComparator, stableSort } from './util-functions';
 import { UserRow } from './UserRow';
-import { getFilteredUsers } from '../../store/users/selectors';
+import { getFilteredUsers, getShowSpinner, hasLoadingError } from '../../store/users/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { User } from '../../store/users/user';
 import { UsersTableHead } from './UsersTableHead';
 import { UsersDetails } from './UserDetails';
 import { selectUser } from '../../store/users/actions';
+import { CircularProgress } from '@material-ui/core';
 
 export const UsersTable: React.FC = () => {
   const dispatch = useDispatch();
   const handleUserSelect = (user: User) => dispatch(selectUser(user));
   const users = useSelector(getFilteredUsers);
+  const hasUsersLoadingError = useSelector(hasLoadingError);
+  const showSpinner = useSelector(getShowSpinner);
   const classes = useStyles();
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof User>('id');
@@ -102,12 +105,32 @@ export const UsersTable: React.FC = () => {
     </>
   );
 
+  const getContent = () => {
+    if (showSpinner) {
+      return (
+        <div className={classes.spinner}>
+          <CircularProgress color="secondary" />
+        </div>
+      );
+    }
+
+    if (hasUsersLoadingError) {
+      return <div className={classes.emptyBlock}>Не удалось загрузить пользователей :(</div>;
+    }
+
+    if (!users.length) {
+      return <div className={classes.emptyBlock}>Ничего не найдено :(</div>;
+    }
+
+    return tableContent;
+  };
+
   return (
     <div className={classes.root}>
       <UsersTableHead />
       <Paper className={classes.paper}>
         <EnhancedTableToolbar />
-        {users.length ? tableContent : <div className={classes.emptyBlock}>Ничего не найдено :(</div>}
+        {getContent()}
       </Paper>
       {!!users.length && (
         <FormControlLabel control={<Switch checked={dense} onChange={handleChangeDense} />} label="Dense padding" />
