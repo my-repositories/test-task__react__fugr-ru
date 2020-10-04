@@ -3,6 +3,7 @@ import { USERS_LOAD } from './actionTypes';
 import { usersBigSize, usersSmallSize } from './users-mock';
 import { failUsersLoading, setUsers } from './actions';
 import { config } from '../../config';
+import { showSnackbar } from '../settings/actions';
 
 function loadUsers(isSmallSize: boolean) {
   const isDev = process.env.NODE_ENV === 'development';
@@ -22,6 +23,7 @@ function* loadUsersSagaWorker(action: { type: string; payload: boolean }) {
     yield put(setUsers(items));
   } catch (e) {
     console.warn(e);
+    yield put(showSnackbar({ text: 'Ошибка загрузки пользователей' }));
     yield put(failUsersLoading());
   }
 }

@@ -4,6 +4,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 import { Content } from './Content';
+import { Snackbar } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSnackbarState } from '../store/settings/selectors';
+import { hideSnackbar } from '../store/settings/actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,9 +33,21 @@ const useStyles = makeStyles((theme) => ({
 
 export const App: React.FC = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const snackbarState = useSelector(getSnackbarState);
+  const handleClose = () => dispatch(hideSnackbar());
 
   return (
     <div className={classes.root}>
+      <Snackbar
+        anchorOrigin={{ vertical: snackbarState.vertical, horizontal: snackbarState.horizontal }}
+        autoHideDuration={5 * 1000}
+        open={snackbarState.opened}
+        onClose={handleClose}
+        onClick={handleClose}
+        message={snackbarState.text}
+        key={snackbarState.vertical + snackbarState.horizontal}
+      />
       <CssBaseline />
       <Header />
       <Sidebar />
