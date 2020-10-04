@@ -18,7 +18,7 @@ import { UserRow } from './UserRow';
 import { getFilteredUsers } from '../../store/users/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { User } from '../../store/users/user';
-import { UsersTableFilter } from './UsersTableFilter';
+import { UsersTableHead } from './UsersTableHead';
 import { UsersDetails } from './UserDetails';
 import { selectUser } from '../../store/users/actions';
 
@@ -104,7 +104,7 @@ export const UsersTable: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <UsersTableFilter />
+      <UsersTableHead />
       <Paper className={classes.paper}>
         <EnhancedTableToolbar />
         {users.length ? tableContent : <div className={classes.emptyBlock}>Ничего не найдено :(</div>}

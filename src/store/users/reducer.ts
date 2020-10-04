@@ -3,6 +3,7 @@ import { ActionType } from 'typesafe-actions';
 import * as actions from './actions';
 import {
   TOGGLE_USERS_SIZE,
+  USERS_ADD_USER,
   USERS_LOADED_ERROR,
   USERS_LOADED_SUCCESS,
   USERS_SELECT_USER,
@@ -39,6 +40,8 @@ export default combineReducers<UsersState, UsersAction>({
   },
   items: (state = initialState.items, action) => {
     switch (action.type) {
+      case USERS_ADD_USER:
+        return [...state, action.payload];
       case USERS_LOADED_SUCCESS:
         return action.payload;
 

@@ -6,14 +6,15 @@ import createSagaMiddleware from 'redux-saga';
 import { App } from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { rootReducer } from './store/rootReducer';
-import loadUsersSagaWatcher from './store/users/saga';
+import loadUsersSagaWatcher from './store/users/saga/usersLoad';
+import addUserSagaWatcher from './store/users/saga/addUser';
 
 const sagaMiddleware = createSagaMiddleware();
 const isDev = process.env.NODE_ENV !== 'production' && typeof window === 'object';
 const composeSetup = (isDev && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const store = createStore(rootReducer, composeSetup(applyMiddleware(sagaMiddleware)));
 sagaMiddleware.run(loadUsersSagaWatcher);
-// sagaMiddleware.run(pageLoadProfileSagaWatcher);
+sagaMiddleware.run(addUserSagaWatcher);
 
 ReactDOM.render(
   <React.StrictMode>

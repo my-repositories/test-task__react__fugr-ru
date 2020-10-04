@@ -4,3 +4,4 @@ export const USERS_LOADED_SUCCESS = 'users/USERS_LOADED_SUCCESS';
 export const USERS_LOADED_ERROR = 'users/USERS_LOADED_ERROR';
 export const USERS_SET_FILTER = 'users/USERS_SET_FILTER';
 export const USERS_SELECT_USER = 'users/USERS_SELECT_USER';
+export const USERS_ADD_USER = 'users/USERS_ADD_USER';

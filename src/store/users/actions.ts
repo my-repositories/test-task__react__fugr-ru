@@ -1,6 +1,7 @@
 import { action } from 'typesafe-actions';
 import {
   TOGGLE_USERS_SIZE,
+  USERS_ADD_USER,
   USERS_LOAD,
   USERS_LOADED_ERROR,
   USERS_LOADED_SUCCESS,
@@ -21,4 +22,6 @@ export const failUsersLoading = () => action(USERS_LOADED_ERROR);
 export const setFilter = (text: string) => action(USERS_SET_FILTER, text);
 
 export const selectUser = (user: User | null) => action(USERS_SELECT_USER, user);
+
+export const addUser = (user: User) => action(USERS_ADD_USER, user);
 /* eslint-enable @typescript-eslint/explicit-module-boundary-types */

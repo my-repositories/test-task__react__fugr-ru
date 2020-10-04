@@ -7,7 +7,8 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     emptyBlock: {
       fontSize: '1rem',
-      padding: '0 0 16px 16px',
+      paddingBottom: theme.spacing(2),
+      paddingLeft: theme.spacing(2),
     },
     paper: {
       width: '100%',
