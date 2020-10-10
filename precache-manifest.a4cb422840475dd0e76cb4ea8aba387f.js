@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5e3ff327db97e02419c3d768ee563902",
+    "revision": "d38c2d995c4d9e1fc162e1868a864d72",
     "url": "https://my-repositories.github.io/test-task__react__fugr-ru/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://my-repositories.github.io/test-task__react__fugr-ru/static/js/2.234cc0d1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "777daff595c9566cfd94",
-    "url": "https://my-repositories.github.io/test-task__react__fugr-ru/static/js/main.f3082477.chunk.js"
+    "revision": "365dc0f836f40d933746",
+    "url": "https://my-repositories.github.io/test-task__react__fugr-ru/static/js/main.8174fcd2.chunk.js"
   },
   {
     "revision": "1bda26e23f3788498bfa",
