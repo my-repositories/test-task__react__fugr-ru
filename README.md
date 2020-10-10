@@ -60,6 +60,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ---
 
+---
+
+https://github.com/fugr-ru/frontend-javascript-test
+
 # Тестовое задание на позицию frontend разработчика
 
 Результат выполнения задания нужно будет оформить здесь же, на гитхабе. Желательный срок выполнения 5 дней с момента получения задания.
