@@ -27,7 +27,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
 
-      - name: Publish GH-Packages
+      - name: Push GH-Packages
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u loktionov129 --password-stdin
           yarn run docker:runtime
